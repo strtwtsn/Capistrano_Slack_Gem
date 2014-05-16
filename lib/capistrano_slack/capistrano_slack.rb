@@ -6,10 +6,10 @@ configuration = Capistrano::Configuration.respond_to?(:instance) ?
 
 configuration.load do
 # Slack Settings
-set(:slack_room) 	{unep-wcmc-website}    # This is the name of the room
+_cset :slack_room 	{unep-wcmc-website}    # This is the name of the room
 set(:slack_token)	{secrets["development"]["capistrano_slack"]}
 set(:slack_subdomain)  {'wcmc'}
-set(:application)     { "#{app_name}" }
+_cset :application     { "#{app_name}" }
 
 deployment_animals = [
    ["Loxodonta deployana", ":elephant:"],
