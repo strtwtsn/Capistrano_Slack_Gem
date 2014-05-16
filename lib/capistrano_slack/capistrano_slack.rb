@@ -6,8 +6,9 @@ configuration = Capistrano::Configuration.respond_to?(:instance) ?
 
 configuration.load do
 # Slack Settings
+set(:secrets) {YAML.load(File.open('config/secrets.yml')}
 _cset :slack_room 	{unep-wcmc-website}    # This is the name of the room
-set(:slack_token)	{secrets["development"]["capistrano_slack"]}
+_cset :slack_token	{secrets["development"]["capistrano_slack"]}
 set(:slack_subdomain)  {'wcmc'}
 _cset :application     { "#{app_name}" }
 
